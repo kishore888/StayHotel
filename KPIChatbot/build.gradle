@@ -1,0 +1,60 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.hospitality'
+version = '0.0.1'
+description = 'KPI Assisst Chatbot'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springAiVersion', "1.0.3")
+	set('springCloudVersion', "2023.0.1")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	
+	//Keycloak token authentication
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	implementation 'org.springframework.security:spring-security-oauth2-jose'
+	implementation 'org.keycloak:keycloak-spring-boot-starter'
+	
+	
+	//implementation 'org.springframework.ai:spring-ai-starter-model-openai'
+	
+	implementation("org.springframework.ai:spring-ai-core:1.0.0-M6")
+	//implementation 'org.springframework.ai:spring-ai-core:0.8.0'
+	implementation 'org.springframework.ai:spring-ai-faiss:0.8.0'
+	implementation 'org.springframework.ai:spring-ai-huggingface:0.8.0'
+	
+	//implementation 'com.github.jelmerk:faiss-java:0.0.9'
+	
+	
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

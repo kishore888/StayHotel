@@ -1,0 +1,22 @@
+eureka:
+ client:
+   register-with-eureka: true
+   fetch-registry: true
+   service-url:
+    defaultZone: http://localhost:8761/eureka/
+
+ instance: 
+    hostname: localhost
+    
+spring:
+  ai:
+    vectorstore:
+      faiss:
+        index-path: /path/to/faiss.index
+        embedding-path: /path/to/embeddings.npy
+    huggingface:
+      embedding:
+        model-id: sentence-transformers/all-MiniLM-L6-v2
+     
+    
+  

@@ -1,0 +1,5 @@
+rootProject.name = 'Payment'
+include ':common-repository'
+project(':common-repository').projectDir=new File(settingsDir, '../common-repository')
+include ':common-utils'
+project(':common-utils').projectDir=new File(settingsDir, '../common-utils')

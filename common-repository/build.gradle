@@ -1,0 +1,52 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.hospitality'
+version = '0.0.1'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation group: 'org.springframework', name: 'spring-tx'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
+	//implementation group: 'org.hibernate.orm', name: 'hibernate-core', version: '6.5.0.Final'
+	//implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.6.15.Final'
+	//implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '8.0.1.Final'
+	//implementation group: 'org.hibernate.common', name: 'hibernate-commons-annotations', version: '6.0.6.Final'
+	//implementation group: 'org.hibernate.jakarta.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.2.Final'
+	implementation group: 'commons-lang', name: 'commons-lang', version: '2.6'
+	
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.17.0'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.17.0'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.17.0'
+	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-hibernate5', version: '2.17.0'
+	implementation group: 'com.voodoodyne.jackson.jsog', name: 'jackson-jsog', version: '1.1.2'
+	
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

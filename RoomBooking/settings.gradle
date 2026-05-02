@@ -1,0 +1,3 @@
+rootProject.name = 'RoomBooking'
+include ':common-repository'
+project(':common-repository').projectDir=new File(settingsDir, '../common-repository')

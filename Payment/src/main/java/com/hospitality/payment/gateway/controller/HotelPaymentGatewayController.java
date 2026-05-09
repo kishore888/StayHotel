@@ -15,19 +15,15 @@ import jakarta.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.hospitality.core.Customer;
 import com.hospitality.core.Hotel;
@@ -137,10 +133,7 @@ public class HotelPaymentGatewayController {
 		String str = "";
 		Transaction transaction = null;
 		try{
-			HttpRequest httpRequest = new ServletServerHttpRequest(request);
-		    UriComponents uriComponents = UriComponentsBuilder.fromHttpRequest(httpRequest).build();
-
-		    String scheme = uriComponents.getScheme();             // http / https
+		    String scheme = request.getScheme();                     // http / https
 			String serverName = request.getServerName();		   // hostname.com
 			int serverPort = request.getServerPort();				// 8080
 			String contextPath = request.getContextPath();   		// /app

@@ -45,11 +45,13 @@ public class Room extends BaseEntity implements Serializable {
 //	@ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="room_type_id")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private RoomType roomType;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="hotel_plan_master_id")
 //	@JsonBackReference
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private HotelPlanMaster hotelPlanMaster;
 
 	@Column(name="room_charges")
@@ -67,12 +69,13 @@ public class Room extends BaseEntity implements Serializable {
 //	@ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="payment_account_id")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private PaymentAccount paymentAccount;
 	
 	//bi-directional many-to-one association to Hotel
 	@ManyToOne(fetch=FetchType.LAZY)
 //	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	@JsonIgnoreProperties({"rooms"})
+	@JsonIgnoreProperties({"rooms", "hibernateLazyInitializer", "handler"})
 	@JoinColumn(name="hotel_id")
 	private Hotel hotel;
 	

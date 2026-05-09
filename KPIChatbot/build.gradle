@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.5'
+	id 'org.springframework.boot' version '4.0.1'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -20,7 +20,7 @@ repositories {
 
 ext {
 	set('springAiVersion', "1.0.3")
-	set('springCloudVersion', "2023.0.1")
+	set('springCloudVersion', "2025.1.1")
 }
 
 dependencies {
@@ -31,15 +31,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 	implementation 'org.springframework.security:spring-security-oauth2-jose'
-	implementation 'org.keycloak:keycloak-spring-boot-starter'
 	
 	
 	//implementation 'org.springframework.ai:spring-ai-starter-model-openai'
 	
-	implementation("org.springframework.ai:spring-ai-core:1.0.0-M6")
+	//implementation 'org.springframework.ai:spring-ai-core' // renamed: use spring-ai-commons or spring-ai-model in 1.0.3
 	//implementation 'org.springframework.ai:spring-ai-core:0.8.0'
-	implementation 'org.springframework.ai:spring-ai-faiss:0.8.0'
-	implementation 'org.springframework.ai:spring-ai-huggingface:0.8.0'
+	//implementation 'org.springframework.ai:spring-ai-faiss:0.8.0'
+	//implementation 'org.springframework.ai:spring-ai-huggingface:0.8.0'
 	
 	//implementation 'com.github.jelmerk:faiss-java:0.0.9'
 	

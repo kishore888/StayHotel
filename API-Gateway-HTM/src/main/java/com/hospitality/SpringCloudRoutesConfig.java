@@ -1,17 +1,11 @@
 package com.hospitality;
 
-import org.apache.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class SpringCloudRoutesConfig {
@@ -26,6 +20,7 @@ public class SpringCloudRoutesConfig {
 	public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
 //				.route(r -> r.path("/**").uri("http://localhost:4200"))
+				.route("Admin" ,r -> r.path("/admin/**").uri("lb://Admin"))
 				.route("ROOM-SERVICE" ,r -> r.path("/room/**").uri("lb://RoomBooking"))
 				.route("KPI-Chatbot" ,r -> r.path("/kpi/chatbot/**").uri("lb://KPIChatbot"))
 				.route("Payment" ,r -> r.path("/payment/**").uri("lb://Payment"))

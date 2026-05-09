@@ -21,7 +21,7 @@ public class RoomDAOImpl extends GenericDAOImpl<Room> implements RoomDAO{
 	public List<Room> retrieveRoomList(Hotel hotel) throws Exception{
 		List<Room> roomList = new ArrayList<>();
 		try{
-			String queryString = "Select r from Room r join fetch r.hotel h join fetch r.roomType join fetch r.hotelPlanMaster where h.hotelId=:hotelId";
+			String queryString = "Select r from Room r join fetch r.hotel h join fetch r.roomType join fetch r.hotelPlanMaster left join fetch r.paymentAccount where h.hotelId=:hotelId";
 			Query query = entityManager.createQuery(queryString);
 			query.setParameter("hotelId", hotel.getHotelId());
 			roomList = query.getResultList();
@@ -36,7 +36,7 @@ public class RoomDAOImpl extends GenericDAOImpl<Room> implements RoomDAO{
 	public Room retrieveByRoomId(String roomId) throws Exception {
 		Room room = null;
 		try{
-			String queryString = "Select r from Room r join fetch r.roomType join fetch r.hotelPlanMaster join fetch r.paymentAccount join fetch r.hotel h where r.roomId=:roomId";
+			String queryString = "Select r from Room r join fetch r.roomType join fetch r.hotelPlanMaster left join fetch r.paymentAccount join fetch r.hotel h where r.roomId=:roomId";
 			Query query = entityManager.createQuery(queryString);
 			query.setParameter("roomId", roomId);
 			if(query.getResultList().size() > 0) {
@@ -53,7 +53,7 @@ public class RoomDAOImpl extends GenericDAOImpl<Room> implements RoomDAO{
 	public List<Room> retrieveListByIds(List<String> roomIdList) throws Exception {
 		List<Room> roomList = new ArrayList<>();
 		try{
-			String queryString = "Select r from Room r join fetch r.roomType join fetch r.hotelPlanMaster join fetch r.paymentAccount join fetch r.hotel h where r.roomId in (:roomIdList)";
+			String queryString = "Select r from Room r join fetch r.roomType join fetch r.hotelPlanMaster left join fetch r.paymentAccount join fetch r.hotel h where r.roomId in (:roomIdList)";
 			Query query = entityManager.createQuery(queryString);
 			query.setParameter("roomIdList", roomIdList);
 			roomList = query.getResultList();

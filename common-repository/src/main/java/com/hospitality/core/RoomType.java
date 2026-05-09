@@ -9,12 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.hospitality.util.BaseEntity;
-import com.voodoodyne.jackson.jsog.JSOGGenerator;
-
 
 /**
  * The persistent class for the room_type database table.
@@ -23,7 +20,6 @@ import com.voodoodyne.jackson.jsog.JSOGGenerator;
 @Entity
 @Table(name="room_type")
 //@NamedQuery(name="RoomType.findAll", query="SELECT r FROM RoomType r")
-@JsonIdentityInfo(generator = JSOGGenerator.class)
 @JsonInclude(Include.NON_NULL)
 public class RoomType extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;

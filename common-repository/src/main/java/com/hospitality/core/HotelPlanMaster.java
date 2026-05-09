@@ -3,11 +3,9 @@ package com.hospitality.core;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.hospitality.util.BaseEntity;
-import com.voodoodyne.jackson.jsog.JSOGGenerator;
 
 
 /**
@@ -17,7 +15,6 @@ import com.voodoodyne.jackson.jsog.JSOGGenerator;
 @Entity
 @Table(name="hotel_plan_master")
 //@NamedQuery(name="HotelPlanMaster.findAll", query="SELECT h FROM HotelPlanMaster h")
-@JsonIdentityInfo(generator = JSOGGenerator.class)
 //@JsonInclude(Include.NON_NULL)
 public class HotelPlanMaster extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;

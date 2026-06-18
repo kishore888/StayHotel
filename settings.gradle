@@ -7,7 +7,6 @@ include ':common-repository'
 include ':common-utils'
 include ':EurekaServer'
 include ':API-Gateway-HTM'
-include ':Admin'
 include ':KPIChatbot'
 include ':Payment'
 //project(':RoomBooking').projectDir=new File(settingsDir, './RoomBooking')

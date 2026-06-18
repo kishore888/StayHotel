@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '4.0.1'
+	id 'org.springframework.boot' version '4.1.0'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -8,7 +8,9 @@ group = 'com.hospitality'
 version = '0.0.1'
 
 java {
-	sourceCompatibility = '25'
+	// Toolchain removed - using options.release = 25 for Java 25 compilation
+	withJavadocJar()
+	withSourcesJar()
 }
 
 repositories {
@@ -16,7 +18,7 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "2025.1.1")
+	set('springCloudVersion', "2025.1.2")
 }
 
 dependencies {
@@ -33,4 +35,9 @@ dependencyManagement {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+	sourceCompatibility = '25'
+	targetCompatibility = '25'
 }

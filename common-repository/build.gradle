@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '4.0.1'
+	id 'org.springframework.boot' version '4.1.0'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -8,9 +8,9 @@ group = 'com.hospitality'
 version = '0.0.1'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(25)
-	}
+	// Toolchain removed - using options.release = 25 for Java 25 compilation
+	withJavadocJar()
+	withSourcesJar()
 }
 
 configurations {
@@ -21,6 +21,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url 'https://projectlombok.org/edge-releases' }
 }
 
 dependencies {
@@ -39,13 +40,18 @@ dependencies {
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind'
 	implementation group: 'com.voodoodyne.jackson.jsog', name: 'jackson-jsog', version: '1.1.2'
 	
-	compileOnly 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok:edge-SNAPSHOT'
+	annotationProcessor 'org.projectlombok:lombok:edge-SNAPSHOT'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+	sourceCompatibility = '25'
+	targetCompatibility = '25'
 }

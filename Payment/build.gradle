@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '4.0.1'
+	id 'org.springframework.boot' version '4.1.0'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -8,15 +8,18 @@ group = 'com.hospitality'
 version = '0.0.1'
 
 java {
-	sourceCompatibility = '25'
+	// Toolchain removed - using options.release = 25 for Java 25 compilation
+	withJavadocJar()
+	withSourcesJar()
 }
 
 repositories {
 	mavenCentral()
+	maven { url 'https://projectlombok.org/edge-releases' }
 }
 
 ext {
-	set('springCloudVersion', "2025.1.1")
+	set('springCloudVersion', "2025.1.2")
 }
 
 dependencies {
@@ -28,6 +31,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 	implementation 'org.springframework.security:spring-security-oauth2-jose'
+	implementation group: 'commons-lang', name: 'commons-lang', version: '2.6'
 	
 	//For Webflux configuration
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
@@ -36,8 +40,8 @@ dependencies {
 	implementation project(':common-utils')
 	//implementation 'com.hospitality:common-repository:0.0.1')
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	compileOnly 'org.projectlombok:lombok:1.18.32'
-	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+	compileOnly 'org.projectlombok:lombok:edge-SNAPSHOT'
+	annotationProcessor 'org.projectlombok:lombok:edge-SNAPSHOT'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -50,4 +54,9 @@ dependencyManagement {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+	sourceCompatibility = '25'
+	targetCompatibility = '25'
 }

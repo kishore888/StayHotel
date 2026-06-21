@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 
 /**
@@ -16,6 +17,7 @@ import com.voodoodyne.jackson.jsog.JSOGGenerator;
 @Table(name="department")
 //@NamedQuery(name="Department.findAll", query="SELECT d FROM Department d")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class Department extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -38,46 +40,6 @@ public class Department extends BaseEntity implements Serializable {
 	private Hotel hotel;
 
 	public Department() {
-	}
-
-	public String getDepartmentId() {
-		return this.departmentId;
-	}
-
-	public void setDepartmentId(String departmentId) {
-		this.departmentId = departmentId;
-	}
-
-	public String getDepartmentName() {
-		return this.departmentName;
-	}
-
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getShortName() {
-		return this.shortName;
-	}
-
-	public void setShortName(String shortName) {
-		this.shortName = shortName;
-	}
-
-	public Hotel getHotel() {
-		return hotel;
-	}
-
-	public void setHotel(Hotel hotel) {
-		this.hotel = hotel;
 	}
 
 }

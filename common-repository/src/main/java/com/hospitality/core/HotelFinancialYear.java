@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 import java.util.Date;
 
@@ -18,6 +19,7 @@ import java.util.Date;
 @Table(name="hotel_financial_year")
 //@NamedQuery(name="HotelFinancialYear.findAll", query="SELECT h FROM HotelFinancialYear h")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class HotelFinancialYear extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -34,30 +36,6 @@ public class HotelFinancialYear extends BaseEntity implements Serializable {
 	private FinancialYear financialYear;
 
 	public HotelFinancialYear() {
-	}
-
-	public String getHotelFinancialYearId() {
-		return hotelFinancialYearId;
-	}
-
-	public void setHotelFinancialYearId(String hotelFinancialYearId) {
-		this.hotelFinancialYearId = hotelFinancialYearId;
-	}
-
-	public Hotel getHotel() {
-		return hotel;
-	}
-
-	public void setHotel(Hotel hotel) {
-		this.hotel = hotel;
-	}
-
-	public FinancialYear getFinancialYear() {
-		return financialYear;
-	}
-
-	public void setFinancialYear(FinancialYear financialYear) {
-		this.financialYear = financialYear;
 	}
 
 }

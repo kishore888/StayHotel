@@ -3,8 +3,12 @@ package com.hospitality.core;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
+import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,6 +19,8 @@ import java.util.List;
 @Entity
 @Table(name="privilege")
 //@NamedQuery(name="Privilege.findAll", query="SELECT p FROM Privilege p")
+@JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class Privilege extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -42,66 +48,18 @@ public class Privilege extends BaseEntity implements Serializable {
 	public Privilege() {
 	}
 
-	public String getPrivilegeId() {
-		return this.privilegeId;
-	}
-
-	public void setPrivilegeId(String privilegeId) {
-		this.privilegeId = privilegeId;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getPrivilegeCode() {
-		return this.privilegeCode;
-	}
-
-	public void setPrivilegeCode(String privilegeCode) {
-		this.privilegeCode = privilegeCode;
-	}
-
-	public Integer getPrivilegeOrder() {
-		return this.privilegeOrder;
-	}
-
-	public void setPrivilegeOrder(Integer privilegeOrder) {
-		this.privilegeOrder = privilegeOrder;
-	}
-
-	public List<RolePrivilege> getRolePrivileges() {
-		return this.rolePrivileges;
-	}
-
-	public void setRolePrivileges(List<RolePrivilege> rolePrivileges) {
-		this.rolePrivileges = rolePrivileges;
-	}
-
-	public RolePrivilege addRolePrivilege(RolePrivilege rolePrivilege) {
-		getRolePrivileges().add(rolePrivilege);
-		rolePrivilege.setPrivilege(this);
-
-		return rolePrivilege;
-	}
-
-	public RolePrivilege removeRolePrivilege(RolePrivilege rolePrivilege) {
-		getRolePrivileges().remove(rolePrivilege);
-		rolePrivilege.setPrivilege(null);
-
-		return rolePrivilege;
-	}
-
-	public Module getModule() {
-		return module;
-	}
-
-	public void setModule(Module module) {
-		this.module = module;
-	}
+//	public RolePrivilege addRolePrivilege(RolePrivilege rolePrivilege) {
+//		getRolePrivileges().add(rolePrivilege);
+//		rolePrivilege.setPrivilege(this);
+//
+//		return rolePrivilege;
+//	}
+//
+//	public RolePrivilege removeRolePrivilege(RolePrivilege rolePrivilege) {
+//		getRolePrivileges().remove(rolePrivilege);
+//		rolePrivilege.setPrivilege(null);
+//
+//		return rolePrivilege;
+//	}
 
 }

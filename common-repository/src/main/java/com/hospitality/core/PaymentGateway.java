@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +22,7 @@ import java.util.List;
 @Table(name="payment_gateway")
 //@NamedQuery(name="PaymentGateway.findAll", query="SELECT p FROM PaymentGateway p")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class PaymentGateway extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -52,70 +54,6 @@ public class PaymentGateway extends BaseEntity implements Serializable {
 	private List<HotelPaymentGateway> hotelPaymentGateways = new ArrayList<>();
 
 	public PaymentGateway() {
-	}
-
-	public String getPaymentGatewayId() {
-		return paymentGatewayId;
-	}
-
-	public void setPaymentGatewayId(String paymentGatewayId) {
-		this.paymentGatewayId = paymentGatewayId;
-	}
-
-	public String getBaseUrl() {
-		return baseUrl;
-	}
-
-	public void setBaseUrl(String baseUrl) {
-		this.baseUrl = baseUrl;
-	}
-
-	public Boolean getIsActive() {
-		return isActive;
-	}
-
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
-	}
-
-	public String getMerchantId() {
-		return merchantId;
-	}
-
-	public void setMerchantId(String merchantId) {
-		this.merchantId = merchantId;
-	}
-
-	public String getMerchantKey() {
-		return merchantKey;
-	}
-
-	public void setMerchantKey(String merchantKey) {
-		this.merchantKey = merchantKey;
-	}
-
-	public String getPaymentGatewayName() {
-		return paymentGatewayName;
-	}
-
-	public void setPaymentGatewayName(String paymentGatewayName) {
-		this.paymentGatewayName = paymentGatewayName;
-	}
-
-	public String getSalt() {
-		return salt;
-	}
-
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
-
-	public List<HotelPaymentGateway> getHotelPaymentGateways() {
-		return hotelPaymentGateways;
-	}
-
-	public void setHotelPaymentGateways(List<HotelPaymentGateway> hotelPaymentGateways) {
-		this.hotelPaymentGateways = hotelPaymentGateways;
 	}
 
 }

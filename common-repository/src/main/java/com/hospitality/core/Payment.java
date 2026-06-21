@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 
 /**
@@ -15,6 +16,7 @@ import com.voodoodyne.jackson.jsog.JSOGGenerator;
 @Entity
 //@NamedQuery(name="Payment.findAll", query="SELECT p FROM Payment p")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class Payment extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -35,38 +37,5 @@ public class Payment extends BaseEntity implements Serializable {
 
 	public Payment() {
 	}
-
-	public String getPaymentId() {
-		return this.paymentId;
-	}
-
-	public void setPaymentId(String paymentId) {
-		this.paymentId = paymentId;
-	}
-
-	public Float getAmount() {
-		return this.amount;
-	}
-
-	public void setAmount(Float amount) {
-		this.amount = amount;
-	}
-
-	public Reservation getReservation() {
-		return reservation;
-	}
-
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
-	}
-
-	public PaymentDetails getPaymentDetails() {
-		return paymentDetails;
-	}
-
-	public void setPaymentDetails(PaymentDetails paymentDetails) {
-		this.paymentDetails = paymentDetails;
-	}
-
 
 }

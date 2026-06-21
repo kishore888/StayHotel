@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 import java.util.Date;
 
@@ -18,6 +19,7 @@ import java.util.Date;
 @Table(name="transaction_details")
 @NamedQuery(name="TransactionDetails.findAll", query="SELECT t FROM TransactionDetails t")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class TransactionDetails extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -36,38 +38,6 @@ public class TransactionDetails extends BaseEntity implements Serializable {
 	private Transaction transaction;
 
 	public TransactionDetails() {
-	}
-
-	public String getTransactionDetailsId() {
-		return transactionDetailsId;
-	}
-
-	public void setTransactionDetailsId(String transactionDetailsId) {
-		this.transactionDetailsId = transactionDetailsId;
-	}
-
-	public Float getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Float amount) {
-		this.amount = amount;
-	}
-
-	public Reservation getReservation() {
-		return reservation;
-	}
-
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
-	}
-
-	public Transaction getTransaction() {
-		return transaction;
-	}
-
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
 	}
 
 }

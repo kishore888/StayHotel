@@ -4,6 +4,7 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 
 import com.hospitality.util.BaseEntity;
+import lombok.Data;
 
 
 /**
@@ -13,6 +14,7 @@ import com.hospitality.util.BaseEntity;
 @Entity
 @Table(name="module")
 //@NamedQuery(name="Module.findAll", query="SELECT m FROM Module m")
+@Data
 public class Module extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -27,30 +29,6 @@ public class Module extends BaseEntity implements Serializable {
 	private String moduleName;
 
 	public Module() {
-	}
-
-	public String getModuleId() {
-		return this.moduleId;
-	}
-
-	public void setModuleId(String moduleId) {
-		this.moduleId = moduleId;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getModuleName() {
-		return this.moduleName;
-	}
-
-	public void setModuleName(String moduleName) {
-		this.moduleName = moduleName;
 	}
 
 }

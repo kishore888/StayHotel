@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 
 /**
@@ -16,6 +17,7 @@ import com.voodoodyne.jackson.jsog.JSOGGenerator;
 @Table(name="element_style")
 //@NamedQuery(name="ElementStyle.findAll", query="SELECT e FROM ElementStyle e")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class ElementStyle extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -41,54 +43,6 @@ public class ElementStyle extends BaseEntity implements Serializable {
 	private Theme theme;
 
 	public ElementStyle() {
-	}
-
-	public String getElementStyleId() {
-		return this.elementStyleId;
-	}
-
-	public void setElementStyleId(String elementStyleId) {
-		this.elementStyleId = elementStyleId;
-	}
-
-	public String getBackgroundColor() {
-		return this.backgroundColor;
-	}
-
-	public void setBackgroundColor(String backgroundColor) {
-		this.backgroundColor = backgroundColor;
-	}
-
-	public String getColor() {
-		return this.color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public String getElementName() {
-		return this.elementName;
-	}
-
-	public void setElementName(String elementName) {
-		this.elementName = elementName;
-	}
-
-	public Theme getTheme() {
-		return this.theme;
-	}
-
-	public void setTheme(Theme theme) {
-		this.theme = theme;
-	}
-
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
 	}
 
 }

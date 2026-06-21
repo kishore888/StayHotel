@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +22,7 @@ import java.util.List;
 @Entity
 //@NamedQuery(name="Reservation.findAll", query="SELECT r FROM Reservation r")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class Reservation extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -64,78 +66,6 @@ public class Reservation extends BaseEntity implements Serializable {
 	private String paymentType;
 	
 	public Reservation() {
-	}
-
-	public String getReservationId() {
-		return reservationId;
-	}
-
-	public void setReservationId(String reservationId) {
-		this.reservationId = reservationId;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	public Room getRoom() {
-		return room;
-	}
-
-	public void setRoom(Room room) {
-		this.room = room;
-	}
-
-	public Date getCheckIn() {
-		return checkIn;
-	}
-
-	public void setCheckIn(Date checkIn) {
-		this.checkIn = checkIn;
-	}
-
-	public Date getCheckOut() {
-		return checkOut;
-	}
-
-	public void setCheckOut(Date checkOut) {
-		this.checkOut = checkOut;
-	}
-
-	public Float getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Float amount) {
-		this.amount = amount;
-	}
-
-	public Float getTotalAmount() {
-		return totalAmount;
-	}
-
-	public void setTotalAmount(Float totalAmount) {
-		this.totalAmount = totalAmount;
-	}
-
-	public String getPaymentType() {
-		return paymentType;
-	}
-
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
-	}
-
-	public PaymentAccount getPaymentAccount() {
-		return paymentAccount;
-	}
-
-	public void setPaymentAccount(PaymentAccount paymentAccount) {
-		this.paymentAccount = paymentAccount;
 	}
 
 }

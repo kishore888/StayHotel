@@ -5,10 +5,12 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 @Entity
 @Table(name = "form_field_config")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class FormFieldConfig extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -55,42 +57,4 @@ public class FormFieldConfig extends BaseEntity implements Serializable {
 
     public FormFieldConfig() {}
 
-    public String getConfigId() { return configId; }
-    public void setConfigId(String configId) { this.configId = configId; }
-
-    public String getEntityType() { return entityType; }
-    public void setEntityType(String entityType) { this.entityType = entityType; }
-
-    public String getFieldName() { return fieldName; }
-    public void setFieldName(String fieldName) { this.fieldName = fieldName; }
-
-    public String getLabel() { return label; }
-    public void setLabel(String label) { this.label = label; }
-
-    public String getFieldType() { return fieldType; }
-    public void setFieldType(String fieldType) { this.fieldType = fieldType; }
-
-    public Boolean getVisible() { return visible; }
-    public void setVisible(Boolean visible) { this.visible = visible; }
-
-    public Boolean getRequired() { return required; }
-    public void setRequired(Boolean required) { this.required = required; }
-
-    public Integer getFieldOrder() { return fieldOrder; }
-    public void setFieldOrder(Integer fieldOrder) { this.fieldOrder = fieldOrder; }
-
-    public Integer getMaxLength() { return maxLength; }
-    public void setMaxLength(Integer maxLength) { this.maxLength = maxLength; }
-
-    public String getPatternRegex() { return patternRegex; }
-    public void setPatternRegex(String patternRegex) { this.patternRegex = patternRegex; }
-
-    public String getPatternMessage() { return patternMessage; }
-    public void setPatternMessage(String patternMessage) { this.patternMessage = patternMessage; }
-
-    public String getFieldOptions() { return fieldOptions; }
-    public void setFieldOptions(String fieldOptions) { this.fieldOptions = fieldOptions; }
-
-    public Hotel getHotel() { return hotel; }
-    public void setHotel(Hotel hotel) { this.hotel = hotel; }
 }

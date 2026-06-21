@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,6 +20,7 @@ import java.util.List;
 @Table(name="role")
 //@NamedQuery(name="Role.findAll", query="SELECT r FROM Role r")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class Role extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -45,82 +48,6 @@ public class Role extends BaseEntity implements Serializable {
 	private List<UserRole> userRoles;
 
 	public Role() {
-	}
-
-	public String getRoleId() {
-		return this.roleId;
-	}
-
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getRoleName() {
-		return this.roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public Hotel getHotel() {
-		return this.hotel;
-	}
-
-	public void setHotel(Hotel hotel) {
-		this.hotel = hotel;
-	}
-
-	public List<RolePrivilege> getRolePrivileges() {
-		return this.rolePrivileges;
-	}
-
-	public void setRolePrivileges(List<RolePrivilege> rolePrivileges) {
-		this.rolePrivileges = rolePrivileges;
-	}
-
-	public RolePrivilege addRolePrivilege(RolePrivilege rolePrivilege) {
-		getRolePrivileges().add(rolePrivilege);
-		rolePrivilege.setRole(this);
-
-		return rolePrivilege;
-	}
-
-	public RolePrivilege removeRolePrivilege(RolePrivilege rolePrivilege) {
-		getRolePrivileges().remove(rolePrivilege);
-		rolePrivilege.setRole(null);
-
-		return rolePrivilege;
-	}
-
-	public List<UserRole> getUserRoles() {
-		return userRoles;
-	}
-
-	public void setUserRoles(List<UserRole> userRoles) {
-		this.userRoles = userRoles;
-	}
-
-	public UserRole addUsersRole(UserRole usersRole) {
-		getUserRoles().add(usersRole);
-		usersRole.setRole(this);
-
-		return usersRole;
-	}
-
-	public UserRole removeUsersRole(UserRole usersRole) {
-		getUserRoles().remove(usersRole);
-		usersRole.setRole(null);
-
-		return usersRole;
 	}
 
 }

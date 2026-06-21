@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +30,7 @@ import jakarta.persistence.Table;
 @JsonIdentityInfo(generator = JSOGGenerator.class)
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "hotelId")
 @JsonInclude(Include.NON_NULL)
+@Data
 public class Hotel extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -87,151 +89,7 @@ public class Hotel extends BaseEntity implements Serializable {
 	}
 
 	public String getHotelId() {
-		return this.hotelId;
-	}
-
-	public void setHotelId(String hotelId) {
-		this.hotelId = hotelId;
-	}
-
-	public String getCity() {
-		return this.city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getDistrict() {
-		return this.district;
-	}
-
-	public void setDistrict(String district) {
-		this.district = district;
-	}
-
-	public String getEmailId() {
-		return this.emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	public String getHotelName() {
-		return this.hotelName;
-	}
-
-	public void setHotelName(String hotelName) {
-		this.hotelName = hotelName;
-	}
-
-	public String getLandNo() {
-		return this.landNo;
-	}
-
-	public void setLandNo(String landNo) {
-		this.landNo = landNo;
-	}
-
-	public String getPhoneNo1() {
-		return this.phoneNo1;
-	}
-
-	public void setPhoneNo1(String phoneNo1) {
-		this.phoneNo1 = phoneNo1;
-	}
-
-	public String getPhoneNo2() {
-		return this.phoneNo2;
-	}
-
-	public void setPhoneNo2(String phoneNo2) {
-		this.phoneNo2 = phoneNo2;
-	}
-
-	public String getPincode() {
-		return this.pincode;
-	}
-
-	public void setPincode(String pincode) {
-		this.pincode = pincode;
-	}
-
-	public String getState() {
-		return this.state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getStreet() {
-		return this.street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public List<Role> getRoles() {
-		return this.roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
-
-	public Role addRole(Role role) {
-		getRoles().add(role);
-		role.setHotel(this);
-
-		return role;
-	}
-
-	public Role removeRole(Role role) {
-		getRoles().remove(role);
-		role.setHotel(null);
-
-		return role;
-	}
-
-	public String getCurrentFinancialYearId() {
-		return currentFinancialYearId;
-	}
-
-	public void setCurrentFinancialYearId(String currentFinancialYearId) {
-		this.currentFinancialYearId = currentFinancialYearId;
-	}
-
-	public List<Users> getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(List<Users> users) {
-		this.users = users;
-	}
-
-	public Users addUser(Users user) {
-		getUsers().add(user);
-		user.setHotel(this);
-
-		return user;
-	}
-
-	public Users removeUser(Users user) {
-		getUsers().remove(user);
-		user.setHotel(null);
-
-		return user;
-	}
-	
-	public List<Room> getRooms() {
-		return rooms;
-	}
-
-	public void setRooms(List<Room> rooms) {
-		this.rooms = rooms;
+		return hotelId;
 	}
 
 }

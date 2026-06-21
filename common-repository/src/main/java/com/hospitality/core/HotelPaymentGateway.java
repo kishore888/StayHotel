@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 import java.util.Date;
 
@@ -21,6 +22,7 @@ import java.util.Date;
 //@NamedQuery(name="HotelPaymentGateway.findAll", query="SELECT h FROM HotelPaymentGateway h")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
 @JsonInclude(Include.NON_NULL)
+@Data
 public class HotelPaymentGateway extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -50,62 +52,6 @@ public class HotelPaymentGateway extends BaseEntity implements Serializable {
 	private PaymentGateway paymentGateway;
 
 	public HotelPaymentGateway() {
-	}
-
-	public String getHotelPaymentGatewayId() {
-		return hotelPaymentGatewayId;
-	}
-
-	public void setHotelPaymentGatewayId(String hotelPaymentGatewayId) {
-		this.hotelPaymentGatewayId = hotelPaymentGatewayId;
-	}
-
-	public Hotel getHotel() {
-		return hotel;
-	}
-
-	public void setHotel(Hotel hotel) {
-		this.hotel = hotel;
-	}
-
-	public String getMerchantId() {
-		return merchantId;
-	}
-
-	public void setMerchantId(String merchantId) {
-		this.merchantId = merchantId;
-	}
-
-	public String getMerchantKey() {
-		return merchantKey;
-	}
-
-	public void setMerchantKey(String merchantKey) {
-		this.merchantKey = merchantKey;
-	}
-
-	public String getSalt() {
-		return salt;
-	}
-
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
-
-	public Boolean getIsActive() {
-		return isActive;
-	}
-
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
-	}
-	
-	public PaymentGateway getPaymentGateway() {
-		return paymentGateway;
-	}
-
-	public void setPaymentGateway(PaymentGateway paymentGateway) {
-		this.paymentGateway = paymentGateway;
 	}
 
 }

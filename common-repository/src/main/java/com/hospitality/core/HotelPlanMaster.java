@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.hospitality.util.BaseEntity;
+import lombok.Data;
 
 
 /**
@@ -16,6 +17,7 @@ import com.hospitality.util.BaseEntity;
 @Table(name="hotel_plan_master")
 //@NamedQuery(name="HotelPlanMaster.findAll", query="SELECT h FROM HotelPlanMaster h")
 //@JsonInclude(Include.NON_NULL)
+@Data
 public class HotelPlanMaster extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -33,38 +35,6 @@ public class HotelPlanMaster extends BaseEntity implements Serializable {
 	private String planName;
 
 	public HotelPlanMaster() {
-	}
-
-	public String getHotelPlanMasterId() {
-		return this.hotelPlanMasterId;
-	}
-
-	public void setHotelPlanMasterId(String hotelPlanMasterId) {
-		this.hotelPlanMasterId = hotelPlanMasterId;
-	}
-
-	public String getPlanCode() {
-		return this.planCode;
-	}
-
-	public void setPlanCode(String planCode) {
-		this.planCode = planCode;
-	}
-
-	public String getPlanDescription() {
-		return this.planDescription;
-	}
-
-	public void setPlanDescription(String planDescription) {
-		this.planDescription = planDescription;
-	}
-
-	public String getPlanName() {
-		return this.planName;
-	}
-
-	public void setPlanName(String planName) {
-		this.planName = planName;
 	}
 
 }

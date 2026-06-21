@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.hospitality.util.BaseEntity;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
+import lombok.Data;
 
 
 /**
@@ -16,6 +17,7 @@ import com.voodoodyne.jackson.jsog.JSOGGenerator;
 @Table(name="user_role")
 //@NamedQuery(name="UsersRole.findAll", query="SELECT u FROM UsersRole u")
 @JsonIdentityInfo(generator = JSOGGenerator.class)
+@Data
 public class UserRole extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -34,30 +36,6 @@ public class UserRole extends BaseEntity implements Serializable {
 	private Users user;
 
 	public UserRole() {
-	}
-
-	public String getUserRoleId() {
-		return userRoleId;
-	}
-
-	public void setUserRoleId(String userRoleId) {
-		this.userRoleId = userRoleId;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
-	public Users getUser() {
-		return user;
-	}
-
-	public void setUser(Users user) {
-		this.user = user;
 	}
 
 
